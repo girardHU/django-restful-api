@@ -15,6 +15,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project
 COPY . /usr/src/app/
 
+# Create migrations files
+RUN python manage.py makemigrations --noinput
+
 RUN chmod +x /usr/src/app/entrypoint.sh
 
 EXPOSE 8000
