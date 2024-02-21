@@ -4,7 +4,7 @@ This example of a Django REST Framework API is fully docker containerized with a
 
 Of course this is a very simplified app but it is fully scalable.
 
-## To run the App
+## Setup
 >**_NOTE:_** The following commands assume that the user is part of the docker group. If he is not you will need to prefix every docker command with `sudo`.
 ```bash
 docker compose up
@@ -17,7 +17,11 @@ docker exec -it django-restful-api-web-1 /bin/bash
 python manage.py createsuperuser
 ```
 
-Fullfill every prompt the CLI gives you, then `exit` the container's bash session.
+Fullfill every prompt the CLI gives you, then `exit` the container's bash session.  
+Entrypoint URL is `http://localhost:8000/api/todos/`.
+
+## Cleanup
+In order to delete every ressources, execute `docker compose down` and delete the folder `data` which contains the database data.
 
 ## How does it work
 The base URL is `localhost:8000/api/todos`. This URL accepts: 
@@ -30,5 +34,4 @@ The URL `localhost:8000/api/todos/{id}` will accepts:
 - DELETE requests from owner only that will delete the element in the database.
 
 Coming soon :
-- Django session auth
 - VueJS frontend
